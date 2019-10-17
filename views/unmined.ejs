@@ -1,0 +1,41 @@
+<% include ./partials/header%>
+<style>
+  tr {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+    width: 50%;
+  }
+</style>
+
+<div class="content">
+  <div class="container mt-4">
+    <h2>Some Un-mined transactions</h2>
+    <% var Index=0;%>
+    <table cellspacing="35" cellpadding="15" style="text-align: center">
+      <tr style="font-weight: 900 ;border-bottom: silver">
+        <td>Index</td>
+
+        <td>Amount</td>
+        <td>Recipient</td>
+        <td>Timestamp</td>
+      </tr>
+      <% transactions.forEach(function(transaction){ %> <%
+      transaction.outputs.forEach(function(output){ %> <% Index++; %>
+      <tr style="border-bottom:solid 2px rgb(0, 0, 0 ,0.2)">
+        <td><%=Index %></td>
+        <td><%=output.amount %></td>
+
+        <td><%=output.address.substring(0,50) %></td>
+        <td><%=output.time %></td>
+      </tr>
+      <% } );%> <% } );%>
+    </table>
+
+    <br /><br />
+    <a class="btn btn-primary btn-lg" href="/new-transact">New transaction</a>
+    <a class="btn btn-primary btn-lg" href="/mine-transaction">Mine Block</a>
+  </div>
+</div>
+<% include ./partials/footer%>

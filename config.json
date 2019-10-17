@@ -1,0 +1,6 @@
+{
+  "env": {
+    "pw": "qwerty1234",
+    "JWT_KEY": "secret"
+  }
+}

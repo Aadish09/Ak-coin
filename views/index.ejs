@@ -1,0 +1,66 @@
+<% include ./partials/header%>
+<div class="sidebar">
+    <h5 style="align-content: center"><b>Explorer</b></h5><br>
+    <a class="active" href="/">Blocks</a>
+    <a href="/new-transact">NewTransaction</a>
+  <a href="/mine-transaction">Mine Block</a>
+  
+
+  
+  <a href="/transactions">Transactions</a>
+  <a href="/balance">Wallet</a>
+  <a href="/difficulty">Difficulty</a>
+  <a href="/hash-rate">Hash rate</a>
+  <a href="/price">Price</a>
+
+
+</div>
+
+<div class="content">
+<div class="container mt-4" >
+<h2>Latest Blocks</h2>
+<table cellpadding="15" style="text-align: center">
+        <tr style="font-weight: 900 ;border-bottom: silver">
+                <td>Index</td>
+                <td>Hash</td>
+                <td>Nonce</td>
+                <td>Mined</td>
+        </tr>
+        <% blocks.forEach(function(block){ %>
+            
+            <% var date = new Date(block.timestamp) %>
+            <%function timeSince(timeStamp) {
+                var now = new Date(),
+                  secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
+                if(secondsPast < 60){
+                  return parseInt(secondsPast) +" "+ 'seconds ago';
+                }
+                if(secondsPast < 3600){
+                  return parseInt(secondsPast/60) +" "+ 'minutes ago';
+                }
+                if(secondsPast <= 86400){
+                  return parseInt(secondsPast/3600) + " "+'hour ago';
+                }
+                if(secondsPast > 86400){
+                    day = timeStamp.getDate();
+                    month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
+                    year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
+                    return day + " " + month +" "+ year ;
+                }
+              }%>
+            <tr style="border-bottom:solid 2px rgb(0, 0, 0 ,0.2)"">
+                <td><%=block.index %></td>
+                <td><%=block.hash%></td>
+                <td><%=block.nonce %></td>
+                <td><%=timeSince(date)%></td>
+            </tr>
+            
+        <% } );%>         
+</table>
+</div>
+</div>
+<script>
+
+  </script>
+<a class="btn-primary" href="/new-transact" >New</button>
+ <% include ./partials/footer%>

@@ -1,0 +1,38 @@
+<% include ./partials/header%>
+<style>
+  body {
+    background: #212529;
+  }
+</style>
+<div
+  class="container1"
+  style="padding: 25px 20px;margin:200px 400px ; background: white; border-radius: 10px"
+>
+  <form action="/transact" method="POST" style="padding: 25px 15px;">
+    <h4 style="font-weight: 700;color: #212529;">
+      Welcome Back!
+    </h4>
+    <br />
+    <div class="form-group">
+      <label for="recipient"><b>Recipient</b></label>
+      <input
+        type="text"
+        class="form-control"
+        name="recipient"
+        placeholder="Enter recipient address"
+      />
+    </div>
+    <div class="form-group">
+      <label for="amount"><b>Amount</b></label>
+      <input
+        type="Amount"
+        class="form-control"
+        name="amount"
+        placeholder="Enter the amount"
+      />
+    </div>
+    <br />
+    <input type="submit" class="btn btn-primary btn-lg" style="width: 100%;" />
+  </form>
+</div>
+<% include ./partials/footer%>
