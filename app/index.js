@@ -4,11 +4,10 @@ const mongoose = require("mongoose");
 
 const bodyParser = require("body-parser");
 const morgan = require("morgan"); //gives log
-const userRoutes = require("./routes/user");
 const Blockchain = require("../Blockchain");
 const P2PServer = require("./P2Pserver");
 const Wallet = require("../Wallet/index");
-const checkAuth = require("./middleware/check-auth");
+// const checkAuth = require("./middleware/check-auth");
 const Miner = require("./miner");
 const TransactionPool = require("../Wallet/transaction-pool");
 const HTTP_PORT = process.env.HTTP_PORT || 3001;
@@ -38,7 +37,7 @@ app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/users", userRoutes);
+// app.use("/users", userRoutes);
 // req other than above rotes should get error
 // app.use((req, res, next) => {
 //   const error = new Error("Not found");
