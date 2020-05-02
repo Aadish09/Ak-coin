@@ -1,59 +1,31 @@
 <% include ./partials/header %>
 <style>
-  tr {
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-  }
-  tr:nth-child(odd) {
-    background-color: #f2f2f2;
-    width: 50%;
-  }
+body{
+  background: #212529;
+}
 </style>
-<div class="container" style="margin-top: 150px;">
-  <h1># Block <%= block.index%></h1>
-  <br />
+<h1 class="block-index"># Block <%= block.index%></h1>
+<div class="summary">
+  
   <% var d= new Date(block.timestamp)%>
-  <div class="row">
-    <div class="col-sm-6">
-      <table cellpadding="10" cellspacing="1000">
-        <tr>
-          <td><b>Summary</b></td>
-        </tr>
-        <tr>
-          <td>Index</td>
-          <td><%= block.index%></td>
-        </tr>
-        <tr>
-          <td>TimeStamp</td>
-          <td><%= d%></td>
-        </tr>
+  <br>
+  
+  <div>
+  
+      <div class="col1"> 
+          <li class="t"><b><u>Index</u></b>: <%= block.index%></li>
+          <li class="t"><b><u>TimeStamp</u> </b>: <%= d%></li>
+          <li class="t"><b><u>Difficulty</u></b> : <%=block.difficulty%></li>
+           <li class="t"><b><u>Nonce</u></b> : <%=block.nonce%></li>
+          
+                  
+        <li class="t"><b><u>Hash</u></b> : <%= block.hash%></li>
+        
+        
+          <li class="t"><b><u>Previous Hash</u></b> : <%= block.prevHash%></li>
 
-        <tr>
-          <td>Difficulty</td>
-          <td><%=block.difficulty%></td>
-        </tr>
-        <tr>
-          <td>Nonce</td>
-          <td><%=block.nonce%></td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-sm-6">
-      <table cellpadding="10" cellspacing="15">
-        <tr>
-          <td><b>Hashes</b></td>
-        </tr>
-        <tr>
-          <td>Hash</td>
-          <td><%= block.hash%></td>
-        </tr>
-        <tr>
-          <td>Previous Hash</td>
-          <td><%= block.prevHash%></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <br /><br />
-  <a href="/" class="btn btn-lg btn-primary" style="width: 100%">Back</a>
+
+      </div>
+      </div>
 </div>
 <% include ./partials/footer %>

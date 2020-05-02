@@ -36,6 +36,7 @@ app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use("/users", userRoutes);
 // req other than above rotes should get error
@@ -60,6 +61,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", function(req, res) {
+  
   res.render("../views/index", { blocks: bc.chain });
 });
 app.get("/blocks", (req, res) => {

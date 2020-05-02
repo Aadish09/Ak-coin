@@ -4,14 +4,11 @@
     background: #212529;
   }
 </style>
-<div
-  class="container1"
-  style="padding: 25px 20px;margin:200px 400px ; background: white; border-radius: 10px"
->
+<div class="container1">
   <form action="/transact" method="POST" style="padding: 25px 15px;">
-    <h4 style="font-weight: 700;color: #212529;">
+    <h1>
       Welcome Back!
-    </h4>
+    </h1>
     <br />
     <div class="form-group">
       <label for="recipient"><b>Recipient</b></label>
@@ -19,7 +16,7 @@
         type="text"
         class="form-control"
         name="recipient"
-        placeholder="Enter recipient address"
+        placeholder="Enter recipient address" required
       />
     </div>
     <div class="form-group">
@@ -28,11 +25,11 @@
         type="Amount"
         class="form-control"
         name="amount"
-        placeholder="Enter the amount"
+        placeholder="Enter the amount" required
       />
     </div>
     <br />
-    <input type="submit" class="btn btn-primary btn-lg" style="width: 100%;" />
+    <input type="submit" class="btn" />
   </form>
 </div>
 <% include ./partials/footer%>
